@@ -18,11 +18,10 @@ defmodule EmojiWeb.Router do
 
     get "/", PageController, :index
 
+    get "/emojis", EmojiController, :index
+
+    get "/emojis/reverse/:emoji", EmojiController, :reverse_search
+
     get "/emojis/:emoji_name", EmojiController, :show
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", EmojiWeb do
-  #   pipe_through :api
-  # end
 end

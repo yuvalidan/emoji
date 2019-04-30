@@ -33,9 +33,12 @@ defmodule Emoji.PopularityStore do
   """
   def get_most_popular(to_take \\ 5) do
     Agent.get(__MODULE__, fn state -> state end)
-    |> Enum.sort_by(&(elem(&1, 1)))
-    |> Enum.reverse()
+    |> Enum.sort(&(elem(&1, 1) > elem(&2, 1)))
     |> Enum.take(to_take)
     |> Enum.map(fn {k, _v} -> k end)
+  end
+
+  def clear_state() do
+    Agent.update(__MODULE__, fn _state -> %{} end)
   end
 end

@@ -25,7 +25,6 @@ defmodule Emoji.PopularityStore do
         nil -> Map.put(state, emoji_name, 1)
         popularity -> Map.put(state, emoji_name, popularity + 1)
       end
-      # TODO: implement the state update and handle missing values
     end)
   end
 
@@ -34,7 +33,6 @@ defmodule Emoji.PopularityStore do
   """
   def get_most_popular(to_take \\ 5) do
     Agent.get(__MODULE__, fn state -> state end)
-    # TODO: implement the sorting algorithm
     |> Enum.sort_by(&(elem(&1, 1)))
     |> Enum.reverse()
     |> Enum.take(to_take)

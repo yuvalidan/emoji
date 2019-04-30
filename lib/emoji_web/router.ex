@@ -20,8 +20,11 @@ defmodule EmojiWeb.Router do
 
     get "/emojis", EmojiController, :index
 
+    get "/emojis/popular", EmojiController, :popular
+
     get "/emojis/reverse/:emoji", EmojiController, :reverse_search
 
     get "/emojis/:emoji_name", EmojiController, :show
+
   end
 end

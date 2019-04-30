@@ -14,6 +14,11 @@ defmodule EmojiWeb.EmojiControllerTest do
       assert response["unicode"] == "🎉"
     end
 
+    test "It will return 404 for a partial match", %{conn: conn} do
+      conn = get(conn, "/emojis/ta")
+      assert json_response(conn, 404)
+    end
+
     test "It will return 404 if no emojis match", %{conn: conn} do
       conn = get(conn, "/emojis/noemoji")
       assert json_response(conn, 404)

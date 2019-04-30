@@ -11,9 +11,10 @@ defmodule Emoji.Application do
       # Start the Ecto repository
       Emoji.Repo,
       # Start the endpoint when the application starts
-      EmojiWeb.Endpoint
+      EmojiWeb.Endpoint,
       # Starts a worker by calling: Emoji.Worker.start_link(arg)
       # {Emoji.Worker, arg},
+      Emoji.PopularityStore
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

@@ -14,7 +14,7 @@ defmodule Emoji.Application do
       EmojiWeb.Endpoint,
       # Starts a worker by calling: Emoji.Worker.start_link(arg)
       # {Emoji.Worker, arg},
-      Emoji.PopularityStore
+      Emoji.PopularityStoreServer
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
